@@ -57,20 +57,6 @@
                 <img src="assets/icons/add.png" class="navIcon">
                 <h6 class="navHead">Register Customer</h6>
             </a>
-            <!-- <a href="javascript:void()" class="navLink" id="office">
-                <img src="assets/icons/office.png" class="navIcon">
-                <h6 class="navHead">Offices</h6>
-                <img src="assets/icons/down.png" class="navIconOffice" id="navIconOffice">
-            </a>
-            <ul class="officeOpt">
-                <li><a class="navLink officeOptLink" href="addOffice.php">Add Office</a></li>
-                <li><a class="navLink officeOptLink" href="allOffices.php">View Offices</a></li>
-            </ul>
-            
-            <a href="allDevices.php" class="navLink">
-                <img src="assets/icons/view2.png" class="navIcon">
-                <h6 class="navHead">view Devices</h6>
-            </a> -->
         </div>
     </div>
 
@@ -126,8 +112,10 @@
             </div>
 
             <div class="row m-0 p-0">
-                <div class="col-12 m-0 p-2"><h3 style="color: rgb(66, 66, 66); font-weight: light;">ADMIN DASHBOARD</h3></div>
+                <div class="col-12 m-0 p-2"><h5 style="color: rgb(66, 66, 66); font-weight: light;">ADMIN DASHBOARD</h5></div>
             </div>
+
+
             <!-- Devices cards -->
             <div class="row m-0 p-0">
 
@@ -163,7 +151,7 @@
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="orderedList">
                         <div class="actionBar">
-                            <div class="col-3 name"><h4>Registered Buyers<h4></div>
+                            <div class="col-3"><h4 class="name">Registered Buyers<h4></div>
                             <div class="col-8 py-3 px-4 searchBuyers">
                                 <input type="text" class="form-control" id="buyer" placeholder="search customers, mobile number" name="email">
                             </div>
@@ -227,7 +215,7 @@
                         ?>
                                     
                                 <tr>
-                                    <td colspan="5" style="border: none;"><a class="btn btn-success" href="allDevices.php#desktop" style="border-radius: 0px; padding: 5px;">View more</a></td>
+                                    <td colspan="5" style="border: none;"><a class="btn" href="allDevices.php#desktop" style="border-radius: 0px; padding: 5px; background-color: white; color: rgb(231, 97, 120); font-weight: bold;">View more</a></td>
                                 </tr>
                                 <tr id="itemNotFound">
                                     <td colspan="5" style="border: none; opacity: 0.5;"><p>no item found</p></td>
@@ -246,7 +234,7 @@
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="deliveredList">
                         <div class="actionBar">
-                            <div class="col-3 name"><h4>Ordered Packages</h4></div>
+                            <div class="col-3"><h4 class="name">Ordered Packages</h4></div>
                             <div class="col-8 py-3 px-4 searchBuyers">
                                 <input type="text" class="form-control" id="package" placeholder="search packages name, color, location, receiver, code... " name="email">
                             </div>
@@ -328,7 +316,7 @@
                                 ?>
                                
                                 <tr>
-                                    <td colspan="7" style="border: none;"><a class="btn btn-success" href="allDevices.php#cpu" style="border-radius: 0px; padding: 5px;">View more</a></td>
+                                    <td colspan="7" style="border: none;"><a class="btn" href="allDevices.php#cpu" style="border-radius: 0px; padding: 5px; background-color: white; color: rgb(231, 97, 120); font-weight: bold;">View more</a></td>
                                 </tr>
                                 <tr id="packageitemNotFound">
                                     <td colspan="7" style="border: none; opacity: 0.5;"><p>no item found</p></td>
