@@ -1,0 +1,346 @@
+html{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+html body{
+    background-color: rgb(224, 224, 224);
+}
+#sidenav{
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    padding-left: 10px;
+    background-color: rgb(37, 37, 37);
+    transition: 0.3s ease-in-out;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.616);
+    z-index: 999;
+    /* display: none; */
+}
+        /* NAVBAR BRAND */
+.sidenav .navbarBrand{
+    padding: 10px 5px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#brandIcon{
+    width: 40px;
+    height: auto;
+}
+.sidenav .navbarBrand h3#brandName{
+    font-size: 1.5rem;
+    color: white;
+}
+        /* PROFILE */
+.sidenav .profilePicDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.452);
+    cursor: pointer;
+}
+.sidenav .profilePicDiv:hover{
+    background-color: rgb(54, 54, 54);
+}
+.sidenav .profilePicDiv .profilePicWrapper{
+    width: 40px;
+    height: 40px;
+    display: block;
+    position: relative;
+    border-radius: 50%;
+    background-color: gray;
+    overflow: hidden;
+}
+.sidenav .profilePicDiv .profilePicWrapper img.profileImg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sidenav .profilePicDiv .profileName h5{
+    color: white;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+.sidenav .profileOpt{
+    /* background-color: rgb(116, 116, 116); */
+    background-color: rgb(197, 197, 197);
+    position: fixed;
+    left: 200px;
+    top: 60px;
+    width: 250px;
+    height: fit-content;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: scale(0);
+    /* transform: translateX(-460px); */
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.603);
+    /* z-index: -9; */
+}
+.profileOpt.scale{
+    transform: scale(1);
+    /* transform: translateX(0px); */
+}
+.sidenav .profileOpt a{
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    padding: 15px 5px;
+    width: 100%;
+}
+
+        /* NAV MENU */
+.sidenav .navmenu{
+    border-top: 1px solid rgba(255, 255, 255, 0.452);
+}
+.sidenav .navmenu a{
+    text-decoration: none;
+    color: white;
+    padding: 15px 5px;
+}
+.sidenav .navmenu a img{
+    width: 25px;
+    height: auto;
+}
+.sidenav .navmenu .navIconOffice{
+    width: 15px;
+    height: 15px;
+    right: 5px;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+#navIconOffice.rotate{
+    transform: rotate(180deg);
+}
+.sidenav .navmenu ul li{
+    list-style-type: none;
+}
+a.navLink{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.navLink.active{
+    /* background-color: rgb(0, 0, 19); */
+    background-color: rgb(224, 224, 224);
+    border-left: 4px solid rgb(0, 0, 150);
+    color: black;
+}
+a.active h6{
+    color: black;
+}
+.navmenu ul li a.active{
+    color: black;
+}
+a.navLink:hover{
+    /* background-color: rgb(0, 0, 19); */
+    background-color: rgb(231, 231, 231);
+}
+a.navLink:hover{
+    color: black;
+}
+
+                /* MAIN CONTAINER */
+#main{
+    height: auto;
+    margin-left: 200px;
+    transition: 0.3s ease-in-out;
+}
+.topNav{
+    background-color: rgb(231, 97, 120);
+    position: sticky;
+    top: 0px;
+}
+img.menuIcon{
+    width: 30px;
+    height: auto;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.404);
+}
+#menuIcon2{
+    display: none;
+}
+#menuIcon.toggleMenuIcon{
+    transform: rotate(90deg);
+}
+.packageCard{
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(51, 51, 102);
+    position: relative;
+}
+#orderedCard{
+    /* background-color: rgba(36, 81, 204, 0.664); */
+    /* background-color: rgb(238, 238, 238); */
+    background: linear-gradient(to bottom right, rgb(37, 37, 37) 20% , rgb(238, 238, 238) 95%);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+}
+#onWayCard{
+    background-color: rgba(185, 185, 19, 0.644);
+    border: 2px solid rgba(185, 185, 19, 0.829);
+    border-radius: 10px;
+}
+#deliveredCard{
+    background: linear-gradient(to bottom right, rgb(37, 37, 37) 20% , rgb(238, 238, 238) 95%);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+}
+.packageDetails{
+    display: flex;
+    flex-direction: column;
+}
+h5.packageCart{
+    color: white;
+    font-size: 1.4rem;
+    font-weight: light;
+}
+h2.packageNo{
+    color: white;
+    font-size: 2.5rem;
+}
+.packageIcon{
+    width: fit-content;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+}
+img.iconImg{
+    max-width: 90px;
+    height: auto;
+    position: relative;
+    margin-left: 80%;
+}
+
+                /* QUICK LINKS */
+.quickLinksCol{
+    background-color: rgb(15, 15, 31);
+}
+
+                /* PACKAGE LIST */
+.packageList{
+    background-color: rgb(15, 15, 31);
+}
+#orderedList{
+    background-color: rgb(37, 37, 37);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+    border-radius: 10px;
+}
+#onWayList{
+    background-color: rgba(153, 153, 15, 0.842);
+}
+#deliveredList{
+    background-color: rgb(37, 37, 37);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.397);
+    border-radius: 10px;
+}
+.actionBar{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+h4.name{
+    /* color: white; */
+    color: rgb(231, 97, 120);
+    /* font-weight: lighter; */
+}
+.actionIcon{
+    width: 25px;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.589);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+#minus.rotate{
+    transform: rotate(90deg);
+}
+#deliveredminus.rotate{
+    transform: rotate(90deg);
+}
+
+#plus, #onWayplus, #deliveredplus{
+    display: none;
+}
+.detailsBar table{
+    width: 100%;
+    height: auto;
+}
+.detailsBar table th{
+    text-align: center;
+}
+.detailsBar table tr th{
+    color: rgb(231, 97, 120);
+    border-right: 1px solid white;
+    padding: 5px;
+}
+tr#thRow{
+    border: 1px solid white;
+}
+.detailsBar table tr td{
+    color: white;
+    /* color: rgb(37, 37, 37); */
+    border-right: 1px solid white;
+    padding: 10px 5px;
+    text-align: center;
+}
+tr.tdRow{
+    cursor: default;
+}
+tr.tdRow:hover{
+    background-color: rgba(9, 9, 19, 0.438);
+}
+tr#itemNotFound{
+    display: none;
+}
+tr#packageitemNotFound{
+    display: none;
+}
+
+                /* MEDIA QUERY */
+@media only screen and (max-width: 1060px){
+    #sidenav{
+        width: 65px;
+    }
+    .sidenav .profileOpt{
+        left: 65px;
+    }
+    #brandName{
+        display: none;
+    }
+    #profileName{
+        display: none;
+    }
+    .navHead{
+        display: none;
+    }
+    #main{
+        margin-left: 65px;
+    }
+    #menuIcon{
+        display: none;
+    }
+    #menuIcon2{
+        display: block;
+    }
+    .officeOptLink{
+        display: none;
+    }
+}

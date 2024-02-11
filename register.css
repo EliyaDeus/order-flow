@@ -1,0 +1,161 @@
+html body{
+    background-color: rgb(224, 224, 224);
+    overflow-x: hidden;
+}
+.formContainer{
+    background-color: rgb(224, 224, 224);
+    /* background-color:  rgb(7, 35, 77); */
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#regForm{
+    width: auto;
+    height: fit-content;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(28, 60, 107); */
+    background-color: rgb(37, 37, 37);
+}
+.formHead{
+    /* background-color:  rgb(7, 35, 77); */
+    width: 100%;
+}
+.formHead h3{
+    color: white;
+}
+label{
+    color: white;
+    font-weight: 400;
+}
+.formdiv{
+    width: 100%;
+    height: auto;
+    /* background-color: green; */
+    position: relative;
+}
+.formdiv i{
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    background-color: white;
+    height: 1px;
+    width: 100%;
+}
+.formdiv input[type="text"]{
+    position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background: transparent;
+    border-bottom: 1px solid white;
+    font-weight: bolder;
+    z-index: 1;
+}
+.formdiv input[type="text"]:valid ~ i{
+    height: 35px;
+}
+.formdiv input[type="tel"]{
+    position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background: transparent;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    z-index: 1;
+}
+.formdiv input[type="number"]{
+    position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background: transparent;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    z-index: 1;
+}
+.formdiv input[type="tel"]:valid ~ i{
+    height: 35px;
+}
+input[type="number"]:focus ~ i{
+    height: 35px;
+}
+.formdiv input[type="number"]:valid ~ i{
+    height: 35px;
+}
+.formdiv input{
+    position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background: transparent;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    z-index: 1;
+}
+.formdiv input:focus ~ i{
+    height: 35px;
+}
+.formdiv input:valid ~ i{
+    height: 35px;
+}
+.formdiv input[type="password"]{
+    position: relative;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background: none;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    z-index: 1;
+}
+input[type="submit"]{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0px;
+    background-color: rgb(231, 97, 120);
+    color: white;
+    font-weight: bold;
+}
+input[type="text"]:focus{
+    border: none;
+    outline: 0;
+    background: none;
+}
+input[type="text"]:focus ~ i{
+    height: 35px;
+}
+
+input[type="te."]:focus{
+    border: none;
+    outline: none;
+    background: none;
+}
+input[type="tel"]:focus ~ i{
+    height: 35px;
+}
+
+#phoneDigitWarning{
+    color: rgb(255, 61, 61);
+    display: none;
+}
+#phoneTypeWarning{
+    color: rgb(255, 61, 61);
+    display: none;
+}
+#phoneAccept{
+    color: rgb(2, 196, 2);
+    display: none;
+}
