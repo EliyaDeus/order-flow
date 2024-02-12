@@ -1,5 +1,14 @@
 <?php
+    session_start();
     include('conn.php');
+
+    if(empty($_SESSION['sellerName']))
+    {
+        echo '<script>
+            window.location.href="seller_login.html";
+            alert("LOGIN TO CONTINUE");
+        </script>';
+    }
 
 ?>
 
@@ -22,6 +31,7 @@
 
     <!-- SIDE NAV -->
     <div class="sidenav" id="sidenav">
+        <img src="assets/icons/close.png" width="50px" id="closeBtn">
         <!-- navbar brand -->
         <a class="navbar-brand navbarBrand" href="user_dash.html">
             <img src="assets/icons/logo2.png" class="brandIcon" id="brandIcon">
@@ -33,7 +43,7 @@
                 <img src="assets/icons/profile.png" class="profileImg">
             </div>
             <div class="profileName" id="profileName">
-                <h5>Andrew Mihayo</h5>
+                <h5>Hello, <?php echo $_SESSION['sellerName'] ?></h5>
             </div>
         </div>
 
@@ -42,7 +52,7 @@
             <a href="javascript:void(0)" class="navLink" style=" color: black;">
                 <img src="assets/icons/user2.png" width="25px">My Profile
             </a>
-            <a href="javascript:void(0)" class="navLink" style=" color: black;">
+            <a href="logout.php" class="navLink" style=" color: black;">
                 <img src="assets/icons/logout2.png" width="25px">Log Out
             </a>
         </div>
@@ -101,17 +111,17 @@
     <div class="main" id="main">
         <div class="container-fluid m-0 p-0">
             <!-- top nav -->
-            <div class="row m-0 p-0">
-                <div class="col-3 m-0 p-3 topNav">
+            <div class="row m-0 p-0 topNav">
+                <div class="col-3 m-0 p-3 ">
                     <img src="assets/icons/menu.png" class="menuIcon" id="menuIcon" title="collpase sidebar">
                     <img src="assets/icons/list.png" class="menuIcon" id="menuIcon2" title="expand sidebar">
                 </div>
-                <div class="col-9 m-0 p-3 topNav">
-                    <h4 style="color: white;">PACKAGE TRACKER</h4>
+                <div class="col-9 m-0 p-3">
+                    <img src="assets/icons/logo4.png" width="20%" height="auto">
                 </div>
             </div>
 
-            <div class="row m-0 p-0">
+            <div class="row mt-3 m-0 p-0 titleRow">
                 <div class="col-12 m-0 p-2"><h5 style="color: rgb(66, 66, 66); font-weight: light;">ADMIN DASHBOARD</h5></div>
             </div>
 
@@ -146,7 +156,7 @@
             </div>
 
             <!-- row 1 -->
-            <div class="row m-0 p-0">
+            <div class="row m-0 p-0" id="customer_row">
                 <!-- ordered package list -->
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="orderedList">
@@ -177,7 +187,7 @@
 
                         <!-- get buyer's details -->
                         <?php
-                            $buyerSql = "SELECT * FROM buyers ORDER BY dateReg DESC";
+                            $buyerSql = "SELECT * FROM buyers ORDER BY date_time_reg DESC";
                             $buyerRst = mysqli_query($conn, $buyerSql);
 
                             if($buyerRst){
@@ -229,7 +239,7 @@
             </div>
 
             <!-- row 2 -->
-            <div class="row m-0 p-0">
+            <div class="row m-0 p-0" id="package_row">
                 <!-- delivered package lists -->
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="deliveredList">
@@ -261,7 +271,7 @@
 
                                 <!-- get packages' details -->
                                 <?php
-                                    $packageSql = "SELECT * FROM products ORDER BY p_date DESC";
+                                    $packageSql = "SELECT * FROM products ORDER BY p_date_time DESC";
                                     $packageRst = mysqli_query($conn, $packageSql);
         
                                     if($packageRst){
@@ -326,6 +336,113 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+
+            <!-- small-sized-screen customer rows -->
+            <div class="row p-2 pb-5" id="smallSizeCustomerDesc">
+                <div class="col-4 m-0 p-0"><h5 class="name">Registered <u>Buyers</u></h5></div>
+                <div class="col-8 p-0 searchBuyers">
+                    <input type="text" class="form-control" id="buyer" placeholder="search customers, mobile number" name="email">
+                </div>
+
+                <?php
+                            $buyerSql = "SELECT * FROM buyers ORDER BY date_time_reg DESC";
+                            $buyerRst = mysqli_query($conn, $buyerSql);
+
+                            if($buyerRst){
+                                if(mysqli_num_rows($buyerRst) > 0){
+                                    while($buyerDetails = mysqli_fetch_assoc($buyerRst)):
+                                        $buyerID = $buyerDetails['buyer_id'];
+                                        $buyerFname = stripslashes($buyerDetails['firstName']);
+                                        $buyerLname = stripslashes($buyerDetails['lastName']);
+                                        $buyerPhone = $buyerDetails['phoneNo'];
+                                        $buyerDateReg = $buyerDetails['dateReg'];
+
+                                        echo '<div class="col-12 mt-2 p-3 customerDetails">';
+                                        echo '<div class="name"><h6>'. $buyerFname . ' ' . $buyerLname .'</h6></div>';
+                                        echo '<div class="mobileNo"><text>'.$buyerPhone.'</text></div>';
+                                        echo '<div class="dateReg"><text>'.$buyerDateReg.'</text></div>';
+                                        echo '</div>';
+                                    
+                                    endwhile;
+                                }
+                                else{
+                                    echo '<div class="col-12 mt-2 p-3 customerDetails" style="opacity: 0.7;">NO CUSTOMERS ARE REGISTERED AT THE MOMENT</div>';
+                                }
+                            }
+                            else{
+                                echo '<script>
+                                    alert("error getting buyer\'s details");
+                                </script>';
+                            }
+                        
+                        
+                        ?>
+
+            </div> 
+
+            <!-- small-sized-screen package rows -->
+            <div class="row p-2 pt-5 pb-5" id="smallSizePackageDesc">
+                <div class="col-4 m-0 p-0"><h5 class="name">Registered <u>Packages</u></h5></div>
+                <div class="col-8 p-0 searchBuyers">
+                    <input type="text" class="form-control" id="package" placeholder="search packages name, color, location, receiver, code... " name="email">
+                </div>
+
+
+                <!-- get packages' details -->
+                <?php
+                    $packageSql = "SELECT * FROM products ORDER BY p_date_time DESC";
+                    $packageRst = mysqli_query($conn, $packageSql);
+
+                    if($packageRst){
+                        if(mysqli_num_rows($packageRst) > 0){
+                            while($packageDetails = mysqli_fetch_assoc($packageRst)):
+                                $packagename = stripslashes($packageDetails['p_name']);
+                                $packageColor = stripslashes($packageDetails['p_color']);
+                                $packageDate = $packageDetails['p_date'];
+                                $packageFrom = $packageDetails['p_from'];
+                                $packageTo = $packageDetails['p_destination'];
+                                $packageOwner = $packageDetails['p_owner'];
+                                $packageCode = $packageDetails['p_code'];
+
+                                // get owner's name
+                                $ownerSql = "SELECT firstName, lastName FROM buyers WHERE phoneNo = $packageOwner";
+                                $ownerRst = mysqli_query($conn, $ownerSql);
+                                if($ownerRst){
+                                    $ownerDetails = mysqli_fetch_assoc($ownerRst);
+                                    $ownerFname = stripslashes($ownerDetails['firstName']);
+                                    $ownerLname = stripslashes($ownerDetails['lastName']);
+                                    $ownerName = $ownerFname . ' ' . $ownerLname;
+                                }
+                                else{
+                                    $ownerName = "error getting the reciever's name " . mysqli_error($conn);
+                                }
+
+
+                                echo '<div class="col-12 mt-2 p-3 customerDetails">';
+                                echo'<div class="P_name"><h6>'.$packagename.'</h6></div>';
+                                echo'<div class="P_color"><text>'.$packageColor.'</text></div>';
+                                echo'<div class="dateReg"><text>CODE: '.$packageCode.'</text></div>';
+                                echo'<div class="destinations"><text>from: <b>'.$packageFrom.'</b> to: <b>'.$packageTo.'</b></text></div>';
+                                echo'<div class="p_owner"><p>Receiver: '.$ownerName.'</p></div>';
+                                echo'</div>';
+                            
+                            endwhile;
+                        }
+                        else{
+                            echo '<div class="col-12 mt-2 p-3 customerDetails" style="opacity: 0.7;">
+                            NO ORDERED PACKAGES AT THE MOMENT
+                        </div>';
+                        }
+                    }
+                    else{
+                        echo '<script>
+                            alert("error getting buyer\'s details");
+                        </script>';
+                    }
+                
+                ?>
             </div>
 
         </div>
