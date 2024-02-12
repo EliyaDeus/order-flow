@@ -48,23 +48,6 @@
                 <img src="assets/icons/dashboard2.png" class="navIcon">
                 <h6 class="navHead">Dashboard</h6>
             </a>
-            <!-- <a href="javascript:void()" class="navLink" id="office">
-                <img src="assets/icons/office.png" class="navIcon">
-                <h6 class="navHead">Offices</h6>
-                <img src="assets/icons/down.png" class="navIconOffice" id="navIconOffice">
-            </a>
-            <ul class="officeOpt">
-                <li><a class="navLink officeOptLink" href="addOffice.php">Add Office</a></li>
-                <li><a class="navLink officeOptLink" href="allOffices.php">View Offices</a></li>
-            </ul>
-            <a href="addDevice.php" class="navLink">
-                <img src="assets/icons/add.png" class="navIcon">
-                <h6 class="navHead">Add Device</h6>
-            </a>
-            <a href="allDevices.php" class="navLink">
-                <img src="assets/icons/view2.png" class="navIcon">
-                <h6 class="navHead">view Devices</h6>
-            </a> -->
         </div>
     </div>
 
@@ -72,19 +55,19 @@
     <div class="main" id="main">
         <div class="container-fluid m-0 p-0">
             <!-- top nav -->
-            <div class="row m-0 p-0">
-                <div class="col-3 m-0 p-3 topNav">
+            <div class="row m-0 p-0 topNav">
+                <div class="col-3 m-0 p-3">
                     <img src="assets/icons/menu.png" class="menuIcon" id="menuIcon" title="collpase sidebar">
                     <img src="assets/icons/list.png" class="menuIcon" id="menuIcon2" title="expand sidebar">
                 </div>
-                <div class="col-9 m-0 p-3 topNav">
-                    <h4 style="color: white;">PACKAGE TRACKER</h4>
+                <div class="col-9 m-0 p-3">
+                    <img src="assets/icons/logo4.png" width="20%" height="auto">
                 </div>
             </div>
 
-            <div class="row m-0 p-0">
+            <div class="row mt-3 m-0 p-0">
                 <div class="col-12 m-0 p-2">
-                    <h3 style="color: rgb(66, 66, 66); font-weight: light;">BUYER'S DASHBOARD</h3>
+                    <h5 style="color: rgb(66, 66, 66); font-weight: light;">BUYER'S DASHBOARD</h5>
                 </div>
             </div>
             <!-- Devices cards -->
@@ -134,7 +117,10 @@
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="orderedList">
                         <div class="actionBar">
-                            <div class="col-11 name">Ordered Packages</div>
+                            <div class="col-3"><h4 class="name">Ordered Packages</h4></div>
+                            <div class="col-8 py-3 px-4 searchBuyers">
+                                <input type="text" class="form-control" id="buyer" placeholder="search customers, mobile number" name="email">
+                            </div>
                             <div class="col-1 action">
                                 <img src="assets/icons/minus.png" class="actionIcon" id="minus">
                                 <img src="assets/icons/plus.png" class="actionIcon" id="plus" title="Toggle Table Collpase">
@@ -171,7 +157,10 @@
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="onWayList">
                         <div class="actionBar">
-                            <div class="col-11 name">On-the-way Packages</div>
+                            <div class="col-3"><h4 class="name">Ordered Packages</h4></div>
+                            <div class="col-8 py-3 px-4 searchBuyers">
+                                <input type="text" class="form-control" id="buyer" placeholder="search customers, mobile number" name="email">
+                            </div>
                             <div class="col-1 action">
                                 <img src="assets/icons/minus.png" class="actionIcon" id="onWayminus" title="Toggle Table Collpase">
                                 <img src="assets/icons/plus.png" class="actionIcon" id="onWayplus">
@@ -209,7 +198,10 @@
                 <div class="col-lg-12 m-0 p-2">
                     <div class="packageList" id="deliveredList">
                         <div class="actionBar">
-                            <div class="col-11 name">Delivered Packages</div>
+                            <div class="col-3"><h4 class="name">Ordered Packages</h4></div>
+                            <div class="col-8 py-3 px-4 searchBuyers">
+                                <input type="text" class="form-control" id="buyer" placeholder="search customers, mobile number" name="email">
+                            </div>
                             <div class="col-1 action">
                                 <img src="assets/icons/minus.png" class="actionIcon" id="deliveredminus">
                                 <img src="assets/icons/plus.png" class="actionIcon" id="deliveredplus" title="Toggle Table Collpase">
