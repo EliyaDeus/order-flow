@@ -50,7 +50,7 @@ $(document).ready(function(){
         var officeOptLink = document.querySelectorAll('.officeOptLink');
         var profileOpt = document.querySelector('.profileOpt');
 
-        sidenav.style.width="200px"
+        sidenav.style.width="200px";
         profileOpt.style.left="200px";
         main.style.marginLeft="200px"
         brandName.style.display="block";
@@ -66,9 +66,43 @@ $(document).ready(function(){
             element.style.display="block";
         })
     }
+    
     document.getElementById('menuIcon2').addEventListener('click', function(){
-        expandFunc();
+        const width = window.innerWidth;
+        var sidenav = document.getElementById('sidenav');
+        const navHead = document.querySelectorAll('.navHead');
+        var brandName = document.getElementById('brandName');
+        var profileName = document.getElementById('profileName');
+        var officeOptLink = document.querySelectorAll('.officeOptLink');
+        var profileOpt = document.querySelector('.profileOpt');
+        
+        if(width <= 500){
+            sidenav.style.left="0px";
+            sidenav.style.width="200px";
+            profileOpt.style.left="200px";
+            brandName.style.display="block";
+            profileName.style.display="block";
+
+            navHead.forEach(function(element){
+                element.style.display="block";
+            })
+
+            officeOptLink.forEach(function(element){
+                element.style.display="block";
+            })
+        }
+        else{
+            expandFunc();
+        }
     });
+
+    // CLOSE SIDEBAR ON SMALL SCREENS
+    document.getElementById('closeBtn').addEventListener('click', function(){
+        var sidenav = document.getElementById('sidenav');
+        sidenav.style.left="-250px";
+    })
+
+    
 
     // SIDEBAR ADJUSTMENT ON WINDOW RESIZE
     function windowResize(){
@@ -81,7 +115,13 @@ $(document).ready(function(){
         var officeOptLink = document.querySelectorAll('.officeOptLink');
         var profileOpt = document.querySelector('.profileOpt');
 
-        if(width <= 1060){
+        if(width <= 500){
+            sidenav.style.left="-250px";
+            // profileOpt.style.left="0px";
+            main.style.marginLeft="0px";
+        }
+        else if(width <= 1060){
+            sidenav.style.left="0px"
             sidenav.style.width="65px";
             profileOpt.style.left="65px";
             main.style.marginLeft="65px";
@@ -115,6 +155,7 @@ $(document).ready(function(){
                 element.style.display="block";
             })
         }
+        
     }
 
     window.addEventListener('resize', function(){
