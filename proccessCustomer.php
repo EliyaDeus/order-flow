@@ -109,6 +109,10 @@
             echo 'error checking for phone number ' . mysqli_error($conn);
         }
 
+        mysqli_stmt_close($insertProdStmt);
+        mysqli_stmt_close($insertBuyerStmt);
+        mysqli_close($conn);
+
     }
 
     
